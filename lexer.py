@@ -2,7 +2,8 @@ from rply import LexerGenerator
 
 
 TOKENS = {
-    'LOGICAL': r'(and|or|not)+',
+    'LOGICAL': r'(and|or)+',
+    'NULL': r'(null)+',
     'CREATE': r'create',
     'PROCEDURE': r'procedure',
     'BEGIN': r'begin',
@@ -29,6 +30,7 @@ TOKENS = {
     'SINGLE_QUOTE': '\'+',
     'LT': '<+',
     'NUMBER': r'\d+',
+    'ALIAS': r'(as)+',
     'OBJECT_NAME': r'[a-z_]+',
 }
 
