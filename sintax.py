@@ -66,6 +66,12 @@ class SyntaxAnalyzer:
                 prev_token_val = self.token_list[index - 1][1]
                 paren_stack.put_nowait((self.sql_file.locate(prev_token_val), prev_token_val))
 
+            elif token_name == 'PROCEDURE':
+                future_token_name = self.token_list[index + 2][0]
+                if future_token_name not in ['BEGIN', 'L_PAREN']:
+                    raise SQLSyntaxError('Invalid procedure name',
+                                         self.sql_file.locate(token_value),
+                                         0)
             elif token_name == 'PARAM_TYPE':
                 param_name_stack.put_nowait(token_name)
 

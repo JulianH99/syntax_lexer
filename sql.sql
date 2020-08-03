@@ -1,5 +1,5 @@
 CREATE PROCEDURE
-proc_name (my_param_name int)
+proc_name(my_param_name int)
 
 BEGIN
     select name as full_name from
